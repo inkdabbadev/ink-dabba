@@ -5,7 +5,6 @@
   --nav: #b4e0ea;
   --blue: #145b8d;
   --blue-soft: rgba(67, 112, 176, 0.52);
-  --coral: #ff6667;
   --coral-start: #ff9665;
   --coral-end: #ff6968;
   --purple: #4c1f91;
@@ -23,7 +22,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-body), sans-serif;
   background: var(--page);
   color: var(--ink);
   overflow-x: hidden;
@@ -94,13 +93,10 @@ textarea {
 }
 
 .main-nav a:hover,
-.main-nav a:focus-visible {
+.main-nav a:focus-visible,
+.main-nav a.is-current {
   color: #7fcde0;
   transform: translateY(-1px);
-}
-
-.main-nav a.is-current {
-  color: #84cadf;
 }
 
 .menu-toggle {
@@ -223,7 +219,7 @@ textarea {
 .hero-copy h1 {
   max-width: 980px;
   margin: 0;
-  font-family: "Bree Serif", serif;
+  font-family: var(--font-display), serif;
   font-size: clamp(3rem, 5.2vw, 5.25rem);
   line-height: 0.98;
   letter-spacing: -0.04em;
@@ -348,6 +344,10 @@ textarea {
   gap: 14px;
 }
 
+.power-card-link {
+  display: block;
+}
+
 .power-card {
   min-height: 234px;
   padding: 36px 20px 30px;
@@ -380,10 +380,6 @@ textarea {
   font-size: 1rem;
   font-style: italic;
   font-weight: 400;
-}
-
-.power-card-link {
-  display: block;
 }
 
 .clients-panel {
@@ -663,7 +659,7 @@ textarea {
 
 .offer-card h1 {
   margin: 0;
-  font-family: "Bree Serif", serif;
+  font-family: var(--font-display), serif;
   font-size: clamp(3rem, 5vw, 4.9rem);
   letter-spacing: -0.03em;
   color: #5b1e93;
@@ -743,8 +739,8 @@ textarea {
   position: sticky;
   top: 140px;
   margin: 0;
-  font-family: "Bree Serif", serif;
   max-width: 160px;
+  font-family: var(--font-display), serif;
   font-size: clamp(1.95rem, 2.8vw, 3.3rem);
   line-height: 0.94;
   color: #56249a;
@@ -823,7 +819,7 @@ textarea {
 
 .quote-mark {
   position: absolute;
-  font-family: "Bree Serif", serif;
+  font-family: var(--font-display), serif;
   font-size: 5.4rem;
   line-height: 1;
   color: rgba(89, 89, 89, 0.92);
@@ -841,7 +837,7 @@ textarea {
 
 .testimonial-text {
   margin: 0;
-  font-family: "Bree Serif", serif;
+  font-family: var(--font-display), serif;
   font-size: clamp(1.55rem, 2.15vw, 2.2rem);
   line-height: 1.58;
   color: #55218f;
@@ -911,11 +907,6 @@ textarea {
     transform: translateY(0);
   }
 
-  .site-header-subpage::before {
-    inset: -10px -8px auto;
-    border-radius: 18px;
-  }
-
   .section-dots {
     right: 20px;
   }
@@ -960,6 +951,11 @@ textarea {
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
+  }
+
+  .site-header-subpage::before {
+    inset: -10px -8px auto;
+    border-radius: 18px;
   }
 
   .superpowers-page {
@@ -1015,10 +1011,12 @@ textarea {
 
   .services-label {
     padding-top: 0;
+    padding-left: 0;
   }
 
   .services-label h2 {
     position: static;
+    max-width: none;
   }
 
   .services-grid {
