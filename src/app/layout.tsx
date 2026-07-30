@@ -1,15 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import FloatingBadge from "@/components/global/FloatingBadge";
-import SmoothScroll from "@/components/global/SmoothScroll";
 import { Fredoka, Outfit, Bebas_Neue } from "next/font/google";
 import { seoDescription } from "@/data/site-content";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
-
-import { CursorProvider } from "@/context/CursorContext";
-import CustomCursor from "@/components/global/CustomCursor";
-import Navigation from "@/components/global/Navigation";
-import Preloader from "@/components/global/Preloader";
+import AppChrome from "@/components/global/AppChrome";
 
 const fredoka = Fredoka({ 
   weight: ["400", "500", "600", "700"], 
@@ -91,13 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="absolute bottom-[-20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-cmyk-magenta/5 blur-[100px] mix-blend-screen" />
         </div>
 
-        <CursorProvider>
-          <Preloader />
-          <CustomCursor />
-          <Navigation />
-          <SmoothScroll>{children}</SmoothScroll>
-          <FloatingBadge />
-        </CursorProvider>
+        <AppChrome>{children}</AppChrome>
       </body>
     </html>
   );

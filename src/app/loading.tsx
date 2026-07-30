@@ -66,8 +66,6 @@ const scenes: Record<LoadingScene["mode"], LoadingScene> = {
 };
 
 function getScene(pathname: string): LoadingScene {
-  if (pathname.startsWith("/work")) return scenes.archive;
-  if (pathname.startsWith("/about")) return scenes.story;
   if (pathname.startsWith("/contact")) return scenes.signal;
   return scenes.press;
 }

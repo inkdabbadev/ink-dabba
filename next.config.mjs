@@ -39,7 +39,7 @@ const nextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: `default-src 'self'; script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"}; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; connect-src 'self' ws: wss:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;`,
+            value: `default-src 'self'; script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"}; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; connect-src 'self' ws: wss:; frame-src 'self' https://firstshow8thelement.vercel.app https://pathologymcq.vercel.app https://inkdabba-dash-nwkd.vercel.app https://aarushi1.vercel.app https://aaruflix.vercel.app; child-src 'self' https://firstshow8thelement.vercel.app https://pathologymcq.vercel.app https://inkdabba-dash-nwkd.vercel.app https://aarushi1.vercel.app https://aaruflix.vercel.app; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;`,
           },
           {
             key: "Cross-Origin-Opener-Policy",

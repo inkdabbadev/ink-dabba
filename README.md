@@ -27,13 +27,10 @@ src/
   app/
     layout.tsx
     page.tsx
-    about/page.tsx
-    about/AboutClient.tsx
     contact/page.tsx
     spatial-design/page.tsx
+    the8thelement/page.tsx
     visuals/page.tsx
-    work/page.tsx
-    work/archive/page.tsx
     loading.tsx
     template.tsx
     robots.ts

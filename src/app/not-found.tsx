@@ -36,12 +36,6 @@ export default function NotFound() {
                 Go back home
               </Link>
               <Link
-                href="/work"
-                className="rounded-[1.2rem] border border-black/10 bg-white px-4 py-3 font-body text-sm font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-black/20"
-              >
-                Browse the work
-              </Link>
-              <Link
                 href="/contact"
                 className="rounded-[1.2rem] bg-ink px-4 py-3 font-body text-sm font-semibold text-paper transition-all duration-300 hover:-translate-y-0.5 hover:bg-black"
               >

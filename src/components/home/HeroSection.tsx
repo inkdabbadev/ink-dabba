@@ -86,11 +86,11 @@ export default function HeroSection() {
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
         >
           <h1
-            className="max-w-[94vw] text-[clamp(2.4rem,12vw,4.1rem)] uppercase leading-[0.86] tracking-normal text-black md:max-w-[min(62rem,92vw)] md:text-[clamp(4.1rem,8.35vw,8.8rem)]"
+            className="w-full max-w-[94vw] text-center text-[clamp(2.4rem,12vw,4.1rem)] uppercase leading-[0.86] tracking-normal text-black md:max-w-[min(62rem,92vw)] md:text-[clamp(4.1rem,8.35vw,8.8rem)]"
             style={{ fontFamily: "Brunson, Impact, sans-serif" }}
           >
             <span className="block whitespace-nowrap">We&apos;re still</span>
-            <span className="block whitespace-nowrap">filling the dabba</span>
+            <span className="flex w-full justify-center whitespace-nowrap">filling the dabba brb</span>
           </h1>
         </motion.div>
 

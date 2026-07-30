@@ -15,8 +15,6 @@ import { contactDetails, identityStamp } from "@/data/site-content";
 import { easePremium } from "@/lib/motion";
 
 const footerLinks = [
-  { href: "/about", label: "About" },
-  { href: "/work", label: "Work" },
   { href: "/contact", label: "Contact" },
 ];
 
