@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const PUZZLE_URL = "https://puzzle-evidence.vercel.app/";
 
 export const metadata: Metadata = {
-  title: "PUZZLE",
+  title: "RUZZLE",
   description: "Embedded Puzzle Evidence website.",
   robots: {
     index: false,
@@ -31,7 +31,7 @@ export default function PuzzlePage() {
           border: "none",
           display: "block",
         }}
-        title="Puzzle Evidence"
+        title="Ruzzle Evidence"
         loading="eager"
         referrerPolicy="strict-origin-when-cross-origin"
         allow="fullscreen; clipboard-write; autoplay; encrypted-media; picture-in-picture"
