@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { CursorProvider } from "@/context/CursorContext";
 import CustomCursor from "@/components/global/CustomCursor";
-import Navigation from "@/components/global/Navigation";
 import SmoothScroll from "@/components/global/SmoothScroll";
 
 const chromeExcludedRoutes = new Set([
@@ -26,7 +25,6 @@ export default function AppChrome({ children }: { children: ReactNode }) {
   return (
     <CursorProvider>
       <CustomCursor />
-      <Navigation />
       <SmoothScroll>{children}</SmoothScroll>
     </CursorProvider>
   );
