@@ -13,6 +13,7 @@ const chromeExcludedRoutes = new Set([
   "/aarushi",
   "/AARUFLIX",
   "/PUZZLE",
+  "/mahima",
 ]);
 
 export default function AppChrome({ children }: { children: ReactNode }) {
