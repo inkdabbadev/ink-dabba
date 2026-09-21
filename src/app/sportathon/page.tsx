@@ -35,7 +35,6 @@ export default function SportathonPage() {
         loading="eager"
         referrerPolicy="strict-origin-when-cross-origin"
         allow="fullscreen; clipboard-write"
-        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads"
         allowFullScreen
       />
     </main>
