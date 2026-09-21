@@ -5,21 +5,12 @@ import type { ReactNode } from "react";
 import { CursorProvider } from "@/context/CursorContext";
 import CustomCursor from "@/components/global/CustomCursor";
 import SmoothScroll from "@/components/global/SmoothScroll";
-
-const chromeExcludedRoutes = new Set([
-  "/the8thelement",
-  "/pathologymcq",
-  "/works",
-  "/aarushi",
-  "/AARUFLIX",
-  "/PUZZLE",
-  "/mahima",
-]);
+import { embeddedRoutes } from "@/lib/embedded-routes";
 
 export default function AppChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
-  if (chromeExcludedRoutes.has(pathname)) {
+  if (embeddedRoutes.has(pathname)) {
     return <>{children}</>;
   }
 

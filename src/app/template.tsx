@@ -2,19 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { embeddedRoutes } from "@/lib/embedded-routes";
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const reduce = useReducedMotion();
   const pathname = usePathname();
 
-  if (
-    pathname === "/the8thelement" ||
-    pathname === "/pathologymcq" ||
-    pathname === "/works" ||
-    pathname === "/aarushi" ||
-    pathname === "/AARUFLIX" ||
-    reduce
-  ) {
+  if (embeddedRoutes.has(pathname) || reduce) {
     return <>{children}</>;
   }
 

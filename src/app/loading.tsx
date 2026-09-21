@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { embeddedRoutes } from "@/lib/embedded-routes";
 
 const smoothEase = [0.16, 1, 0.3, 1] as const;
 const settleEase = [0.76, 0, 0.24, 1] as const;
@@ -192,6 +193,13 @@ function SceneVisual({ scene, reduce }: { scene: LoadingScene; reduce: boolean }
 
 export default function Loading() {
   const pathname = usePathname();
+
+  if (embeddedRoutes.has(pathname)) return null;
+
+  return <StudioLoading pathname={pathname} />;
+}
+
+function StudioLoading({ pathname }: { pathname: string }) {
   const reduce = useReducedMotion();
   const scene = useMemo(() => getScene(pathname), [pathname]);
   const [wordIndex, setWordIndex] = useState(0);
