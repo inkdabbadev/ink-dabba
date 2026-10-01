@@ -9,4 +9,8 @@ export const embeddedRoutes = new Set([
   "/RUZZLE",
   "/mahima",
   "/sportathon",
+  "/GI-Labs",
+  "/GI%20Labs",
+  "/GI Labs",
+  "/GILabs",
 ]);
