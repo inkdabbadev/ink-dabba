@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const GI_LABS_URL = "https://gi-labs.vercel.app/";
 
 export const metadata: Metadata = {
-  title: { absolute: "GI Labs" },
+  title: { absolute: "GILab" },
   description: "GI Labs website.",
   robots: {
     index: false,
