@@ -20,11 +20,6 @@ export const metadata: Metadata = {
 };
 
 import HeroSection from "@/components/home/HeroSection";
-import ServicesSection from "@/components/home/ServicesSection";
-import DifferenceSection from "@/components/home/DifferenceSection";
-import ClientSection from "@/components/home/ClientSection";
-import ClientContactTransition from "@/components/home/ClientContactTransition";
-import Footer from "@/components/global/Footer";
 
 export default async function Home() {
   const structuredData = {
@@ -64,22 +59,7 @@ export default async function Home() {
       />
 
       <main className="flex flex-col bg-ink-black text-warm-white">
-        {/* 1st Page: Hero Section */}
         <HeroSection />
-
-        {/* 2nd Page: What We Offer (Visuals & Spatial Design Grids) */}
-        <ServicesSection />
-
-        {/* 3rd Page: What Makes InkDabba Different */}
-        <DifferenceSection />
-
-        {/* 4th Page: Our Clients (Normal scroll flow) */}
-        <ClientSection />
-
-        {/* 5th Page: Scroll-pinned Zoom Portal to Contact Section */}
-        <ClientContactTransition />
-
-        <Footer />
       </main>
     </>
   );

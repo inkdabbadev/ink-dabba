@@ -14,9 +14,7 @@ import Magnetic from "@/components/motion/Magnetic";
 import { contactDetails, identityStamp } from "@/data/site-content";
 import { easePremium } from "@/lib/motion";
 
-const footerLinks = [
-  { href: "/contact", label: "Contact" },
-];
+const footerLinks: { href: string; label: string }[] = [];
 
 export default function SiteFooter() {
   const ref = useRef<HTMLElement>(null);
