@@ -1,5 +1,6 @@
 // Embedded websites render directly, without the studio's chrome or animations.
 export const embeddedRoutes = new Set([
+  "/CYS",
   "/camaraderie",
   "/works",
   "/aarushi",
