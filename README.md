@@ -1,5 +1,17 @@
 # INK DABBA Website
 
+The birthday experience is available at `/hugsyy`. Its complete source is in
+`hugsyy/`, isolated from the studio site's Next.js version and global styles.
+`npm run dev` and `npm run build` first install and export the nested app into
+the ignored `public/hugsyy/experience/` directory. To rebuild just that app, run
+`npm run build:hugsyy`. The parent build must use the repository root directory.
+
+The route uses a same-origin frame and enables microphone access only under
+`/hugsyy`, preserving the studio site's default microphone restriction. Birthday
+music, microphone candle blowing, the gift box and all five workshops run locally
+within this site; no separate birthday deployment is needed. Microphones require
+localhost or HTTPS.
+
 A poster-first studio site built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 
 ## Stack
