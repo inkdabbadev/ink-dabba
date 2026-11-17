@@ -17,7 +17,7 @@ function run(args, env = process.env) {
   if (result.status !== 0) process.exit(result.status || 1);
 }
 
-run(["ci", "--prefix", app, "--no-audit", "--no-fund"]);
+run(["ci", "--prefix", app, "--include=dev", "--no-audit", "--no-fund"]);
 run(["run", "build", "--prefix", app], {
   ...process.env,
   HUGSYY_BASE_PATH: "/hugsyy/experience",
