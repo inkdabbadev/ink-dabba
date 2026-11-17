@@ -60,6 +60,26 @@ const nextConfig = {
         ],
       },
       {
+        source: "/hugsyy/:path*",
+        headers: [
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(self), geolocation=(), browsing-topics=()",
+          },
+        ],
+      },
+      {
+        source: "/hugsyy/experience/:path*",
+        headers: [
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+          {
+            key: "Content-Security-Policy",
+            value: `default-src 'self'; script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self'; media-src 'self' blob: data:; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';`,
+          },
+        ],
+      },
+      {
         source: "/image/:path*",
         headers: [
           {

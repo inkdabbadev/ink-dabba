@@ -1,0 +1,585 @@
+﻿/* Interaction surfaces stay flat; depth belongs to the artwork underneath. */
+.experience-world button {
+  touch-action: manipulation;
+}
+.experience-world .topper-supply button,
+.experience-world .flower-supply button {
+  touch-action: none;
+}
+.experience-world .gift-preview {
+  perspective: none;
+}
+.balloon-interactive,
+.balloon-model {
+  width: 100%;
+  height: 100%;
+}
+.balloon-model {
+  transition: transform 0.12s ease-out;
+}
+.experience-world .balloon-touch-layer {
+  position: absolute;
+  inset: 0 0 60px;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  color: #895064;
+  touch-action: none;
+  cursor: grab;
+}
+.experience-world .balloon-touch-layer:active {
+  cursor: grabbing;
+}
+.balloon-touch-layer > span {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 95%;
+  padding: 9px 13px;
+  border: 1px solid #cba8a480;
+  border-radius: 30px;
+  background: #fff7e7e6;
+  font-size: 11px;
+}
+.balloon-touch-layer > span > span {
+  margin-left: 10px;
+}
+.balloon-colors {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0 25px;
+}
+.experience-world .balloon-colors > button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #fff6e5;
+  outline: 1px solid #ccb4a3;
+}
+.experience-world .balloon-colors > button[aria-pressed="true"] {
+  outline: 2px solid #895064;
+}
+@media (max-width: 650px) {
+  .experience-world
+    .gift-dialog:is(.dialog-cake, .dialog-balloon, .dialog-bouquet) {
+    height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+    padding: 20px;
+  }
+  .experience-world
+    :is(.dialog-cake, .dialog-balloon, .dialog-bouquet)
+    .atelier-heading {
+    flex-shrink: 0;
+  }
+  .experience-world
+    :is(.dialog-cake, .dialog-balloon, .dialog-bouquet)
+    .gift-workspace {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: minmax(180px, 40%) minmax(0, 1fr);
+    gap: 12px;
+  }
+  .experience-world
+    :is(.dialog-cake, .dialog-balloon, .dialog-bouquet)
+    .gift-preview {
+    min-height: 0;
+    height: 100%;
+  }
+  .experience-world
+    :is(.dialog-cake, .dialog-balloon, .dialog-bouquet)
+    .gift-tools {
+    min-height: 0;
+    max-height: none;
+    overflow-y: auto;
+    padding: 14px;
+  }
+  .experience-world .dialog-bouquet .gift-preview > .bouquet-art {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+  }
+}
+.experience-world .new-parcel {
+  rotate: none;
+  transform-style: flat;
+  transition: box-shadow 0.25s;
+}
+.experience-world .pull-wrap.ribbon,
+.experience-world .pull-wrap.tear,
+.experience-world .new-lid-tab {
+  transform: none;
+}
+.experience-world .pull-wrap {
+  z-index: 4;
+}
+.experience-world .physical-pull {
+  touch-action: none;
+  pointer-events: auto;
+  z-index: 5;
+}
+.experience-world .physical-pull > * {
+  pointer-events: none;
+}
+.experience-world .pull-alternative {
+  z-index: 6;
+  min-height: 44px;
+  min-width: 100px;
+  font-size: 12px !important;
+}
+.experience-world .parcel-grain,
+.experience-world .simple-label,
+.experience-world .box-front-edge,
+.experience-world .box-right-edge,
+.experience-world .parcel-edition {
+  pointer-events: none;
+}
+.experience-world .gift-box {
+  rotate: none;
+  height: 570px;
+  transform-style: flat;
+}
+.experience-world .gift-grid .gift-item {
+  rotate: none;
+  width: 31%;
+  height: 46%;
+  min-width: 44px;
+  min-height: 44px;
+  translate: none;
+}
+.experience-world .gift-grid .gift-balloon {
+  left: 1%;
+  top: 0;
+  right: auto;
+  bottom: auto;
+}
+.experience-world .gift-grid .gift-cake {
+  left: 34.5%;
+  top: 0;
+  right: auto;
+  bottom: auto;
+}
+.experience-world .gift-grid .gift-arcade {
+  left: 68%;
+  top: 0;
+  right: auto;
+  bottom: auto;
+}
+.experience-world .gift-grid .gift-photo {
+  left: 14%;
+  top: auto;
+  bottom: 1%;
+  right: auto;
+}
+.experience-world .gift-grid .gift-bouquet {
+  left: auto;
+  right: 12%;
+  top: auto;
+  bottom: 1%;
+}
+.experience-world .gift-grid .gift-item:hover {
+  translate: 0 -4px;
+}
+.experience-world .gift-arcade .gift-art > svg {
+  max-height: 235px;
+  pointer-events: none;
+}
+.experience-world .gift-preview > .arcade-art {
+  pointer-events: auto;
+  touch-action: none;
+  width: min(100%, 350px);
+  height: 440px;
+  max-height: 100%;
+  filter: drop-shadow(10px 20px 10px #7c554026);
+}
+.experience-world .gift-dialog .dialog-close {
+  position: sticky;
+  top: 12px;
+  right: auto;
+  align-self: flex-end;
+  margin: -8px -8px -30px auto;
+  background: #fff7e9ee;
+  z-index: 15;
+  flex-shrink: 0;
+  min-width: 40px;
+  min-height: 40px;
+}
+.experience-world .gift-tools button {
+  min-height: 40px;
+}
+.experience-world .gift-tools .small-actions button {
+  min-height: 44px;
+}
+.experience-world .claw-controls {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  gap: 8px;
+  margin: 20px 0;
+}
+.experience-world .claw-controls button {
+  border: 1px solid #c9a997;
+  background: #fff8e9;
+  min-width: 0;
+  min-height: 48px;
+  border-radius: 5px;
+  touch-action: none;
+  font-size: 18px;
+}
+.experience-world .claw-controls .grab-button {
+  background: #78334e;
+  color: #fff4e5;
+  font-size: 12px;
+  white-space: normal;
+  padding: 8px;
+}
+.experience-world .claw-controls button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.experience-world .prize-ticket {
+  margin: 20px 0;
+  padding: 18px 14px;
+  background: #f2e0d5;
+  border: 1px dashed #b88b8d;
+  border-radius: 5px;
+  text-align: center;
+}
+.experience-world .prize-ticket > svg {
+  width: 75px;
+  height: 85px;
+  margin: auto;
+}
+.experience-world .prize-ticket h3 {
+  font: 25px var(--hand);
+  margin: 8px 0;
+}
+.experience-world .prize-ticket p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.experience-world .prize-ticket button {
+  border: 0;
+  border-radius: 30px;
+  padding: 12px;
+  background: #78334e;
+  color: #fff4e5;
+  font-size: 12px;
+  line-height: 1.5;
+  width: 100%;
+}
+.experience-world .prize-stamps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+.experience-world .prize-stamps > button {
+  border: 1px solid #d7c2ad;
+  background: transparent;
+  border-radius: 8px;
+  padding: 5px;
+  opacity: 1;
+  width: auto;
+  height: 65px;
+}
+.experience-world .prize-stamps > button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.experience-world .prize-stamps > button > svg {
+  width: 100%;
+  height: 100%;
+}
+.keepsake-tray {
+  position: absolute;
+  top: calc(100% + 30px);
+  left: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.keepsake-tray > span {
+  display: block;
+  width: 45px;
+  height: 50px;
+  filter: drop-shadow(1px 4px 3px #754a4022);
+}
+.keepsake-tray svg {
+  width: 100%;
+  height: 100%;
+}
+.experience-world .with-keepsakes .reread-letter {
+  bottom: -125px;
+}
+@media (max-width: 1000px) {
+  .experience-world .experience-caption {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    margin: 25px 7vw 0;
+  }
+  .experience-world .experience-caption p {
+    font-size: 36px;
+    margin: 15px 0 0;
+  }
+  .experience-world .birthday-stage {
+    min-height: 0;
+    padding: 75px 6vw 130px;
+  }
+  .experience-world.phase-gifts .birthday-stage {
+    padding-top: 160px;
+    padding-bottom: 140px;
+  }
+  .experience-world .new-parcel {
+    width: min(620px, 84vw);
+  }
+  .experience-world .gift-box {
+    width: 84vw;
+    height: 570px;
+  }
+}
+@media (max-width: 650px) {
+  .experience-world .birthday-header {
+    height: 78px;
+  }
+  .experience-world .experience-caption {
+    margin: 20px 26px 0;
+  }
+  .experience-world .experience-caption p {
+    font-size: 31px;
+    line-height: 1.1;
+  }
+  .experience-world .birthday-stage {
+    padding: 65px 26px 125px;
+    min-height: 0;
+  }
+  .experience-world .new-parcel {
+    width: calc(100vw - 52px);
+    height: 320px;
+    rotate: none;
+    transform-style: flat;
+  }
+  .experience-world .simple-label h1 {
+    font-size: 105px;
+  }
+  .experience-world .pull-alternative {
+    bottom: -105px;
+  }
+  .experience-world .envelope-scene {
+    width: calc(100vw - 65px);
+    height: 340px;
+  }
+  .experience-world .playful-envelope {
+    max-width: 68vw;
+  }
+  .experience-world.phase-gifts .birthday-stage {
+    padding: 130px 22px 150px;
+  }
+  .experience-world .gift-box {
+    width: 100%;
+    height: auto;
+    rotate: none;
+    min-width: 0;
+  }
+  .experience-world .gift-grid {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 8px;
+    padding: 18px 5px 25px;
+  }
+  .experience-world .gift-grid .gift-item {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 205px;
+    min-width: 0;
+    rotate: none;
+    translate: none;
+  }
+  .experience-world .gift-grid .gift-item:hover {
+    translate: none;
+  }
+  .experience-world .gift-grid .gift-arcade {
+    grid-column: 1/-1;
+    height: 260px;
+    width: 100%;
+  }
+  .experience-world .gift-arcade .gift-art {
+    max-width: 190px;
+    height: 235px;
+  }
+  .experience-world .gift-art {
+    height: 170px;
+    min-height: 0;
+  }
+  .experience-world .gift-caption {
+    font-size: 17px;
+    white-space: normal;
+    text-align: center;
+  }
+  .experience-world .gift-box-lid {
+    height: 95px;
+  }
+  .experience-world .reread-letter {
+    bottom: -80px;
+  }
+  .experience-world .with-keepsakes .reread-letter {
+    bottom: -130px;
+  }
+  .experience-world .gift-dialog {
+    padding: 28px 20px;
+  }
+  .experience-world .gift-workspace {
+    width: 100%;
+    min-width: 0;
+  }
+  .experience-world .gift-tools {
+    min-width: 0;
+    padding: 20px 16px;
+  }
+  .experience-world .gift-preview {
+    height: 320px;
+    min-height: 320px;
+  }
+  .experience-world .dialog-arcade .gift-preview {
+    height: 390px;
+    min-height: 390px;
+  }
+  .experience-world .gift-preview > .arcade-art {
+    height: 380px;
+    max-width: 280px;
+  }
+  .experience-world .gift-dialog .dialog-close {
+    top: 12px;
+    margin: 0 0 -32px auto;
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .experience-world .atelier-heading {
+    padding-right: 45px;
+  }
+  .experience-world .atelier-heading h2 {
+    max-width: none;
+    font-size: 29px;
+    margin-right: 0;
+  }
+  .experience-world .gift-tools .topper-supply small {
+    font-size: 10px;
+  }
+  .experience-world .gift-tools .flower-supply {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .experience-world .gift-tools .flower-supply button {
+    height: 83px;
+  }
+  .experience-world .gift-tools .flower-supply svg {
+    height: 58px;
+    width: 100%;
+  }
+  .experience-world .gift-tools .flower-supply span {
+    font-size: 11px;
+  }
+  .experience-world .gift-tools .flavor-picks button {
+    font-size: 11px;
+  }
+  .experience-world .gift-tools .pipe-pick button {
+    min-width: 115px;
+  }
+  .experience-world .gift-tools .pipe-pick input {
+    min-width: 0;
+    width: auto !important;
+  }
+}
+@media (max-width: 350px) {
+  .experience-world .gift-grid .gift-item {
+    height: 180px;
+  }
+  .experience-world .gift-art {
+    height: 145px;
+  }
+  .experience-world .gift-caption {
+    font-size: 15px;
+  }
+  .experience-world .simple-label > small {
+    letter-spacing: 0.8px;
+  }
+  .experience-world .new-parcel {
+    height: 300px;
+  }
+}
+
+.experience-world .ribbon .physical-pull {
+  left: 50%;
+  right: auto;
+  width: 50%;
+}
+.experience-world .ribbon .satin-band {
+  left: 50%;
+}
+.experience-world .ribbon svg {
+  left: calc(50% - 129px);
+}
+@media (max-width: 650px) {
+  .experience-world .ribbon svg {
+    left: calc(50% - 87px);
+  }
+}
+@media (max-width: 650px) {
+  .experience-world .keepsake-tray {
+    position: relative;
+    top: auto;
+    left: auto;
+    justify-content: center;
+    margin: 5px 0 12px;
+    padding: 0 8px;
+    max-width: 100%;
+  }
+  .experience-world .with-keepsakes .reread-letter {
+    bottom: -80px;
+  }
+}
+@media (max-height: 500px) and (min-width: 651px) {
+  .experience-world .birthday-overlay {
+    padding: 12px;
+  }
+  .experience-world .gift-dialog {
+    padding: 25px;
+    min-height: 0;
+  }
+  .experience-world .gift-workspace {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 18px;
+  }
+  .experience-world .gift-preview {
+    min-height: 290px;
+    height: 290px;
+  }
+  .experience-world .gift-tools {
+    max-height: none;
+  }
+  .experience-world .gift-preview > .arcade-art {
+    height: 285px;
+  }
+  .experience-world .atelier-heading h2 {
+    font-size: 30px;
+  }
+}
+/* This experience is a scrolling page, unlike the former fixed tabletop. */
+html,
+body {
+  height: auto;
+  min-height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.experience-world .birthday-overlay,
+.experience-world .gift-tools {
+  overscroll-behavior: contain;
+}

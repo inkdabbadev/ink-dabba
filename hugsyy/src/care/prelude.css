@@ -1,0 +1,584 @@
+.birthday-prelude {
+  --wish-ink: #7b3b50;
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #171320;
+  color: #f8e9cf;
+  font-family: var(--sans), sans-serif;
+  transition:
+    background 1.2s,
+    color 1.2s;
+}
+.birthday-prelude * {
+  box-sizing: border-box;
+}
+.birthday-prelude button {
+  cursor: pointer;
+  font: inherit;
+  touch-action: manipulation;
+}
+.birthday-prelude button:focus-visible {
+  outline: 3px solid #c08094;
+  outline-offset: 5px;
+}
+.prelude-header {
+  position: relative;
+  z-index: 4;
+  padding: 28px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.prelude-header > span {
+  font-family: var(--display), Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+}
+.prelude-header button {
+  color: inherit;
+  border: 1px solid #b69c7c66;
+  border-radius: 30px;
+  padding: 10px 17px;
+  background: transparent;
+  min-height: 44px;
+}
+.prelude-invitation {
+  min-height: calc(100svh - 100px);
+  padding: 7vh 24px 14vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.prelude-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.23em;
+  line-height: 1.8;
+}
+.prelude-invitation:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(700px, 100vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    #bd8e6233,
+    #9c686e0d 50%,
+    transparent 70%
+  );
+}
+.prelude-invitation h1 {
+  margin: 27px 0 6px;
+  font:
+    400 clamp(60px, 8vw, 112px)/1.05 var(--display),
+    Georgia,
+    serif;
+  letter-spacing: -0.045em;
+}
+.prelude-invitation h1 em {
+  color: #e6b8b5;
+}
+.prelude-invitation p {
+  color: #ccbcb5;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.prelude-start {
+  margin-top: 38px;
+  min-height: 62px;
+  padding: 0 28px;
+  border: 1px solid #e6cda3;
+  background: linear-gradient(120deg, #cda875, #f7e6bd 45%, #d1ae7e);
+  color: #573d32;
+  border-radius: 4px;
+  box-shadow:
+    0 8px 38px #deb16b29,
+    inset 0 1px #fff8db;
+  font-size: 13px !important;
+}
+.prelude-start span,
+.prelude-continue span {
+  margin-left: 24px;
+}
+.prelude-start:hover {
+  box-shadow: 0 8px 50px #deb16b55;
+}
+.invitation-footnote {
+  margin-top: 25px;
+  color: #a79a9e;
+  font:
+    italic 15px var(--display),
+    Georgia,
+    serif;
+}
+.prelude-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.prelude-sparkles i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #e0be82;
+  box-shadow: 0 0 12px #ffe4b5;
+  animation: wish-sparkle 3s calc(var(--i) * -0.21s) infinite alternate;
+}
+.birthday-prelude.has-started {
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    #fff6df,
+    #f6e1cd 55%,
+    #ecc7c2
+  );
+  color: var(--wish-ink);
+}
+.has-started .prelude-header {
+  color: #93616a;
+}
+.has-started .prelude-sparkles {
+  opacity: 0.45;
+}
+.prelude-celebration {
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: 5px 24px 45px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: wish-arrive 1s both;
+}
+.birthday-bunting {
+  margin: 0 auto 8px;
+  width: min(560px, 100%);
+  position: relative;
+  padding: 4px 0 12px;
+}
+.birthday-bunting:before {
+  content: "";
+  position: absolute;
+  top: -29px;
+  left: -5%;
+  width: 110%;
+  height: 60px;
+  border-bottom: 1px solid #b78c72;
+  border-radius: 0 0 50% 50%;
+}
+.birthday-bunting > span {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  position: relative;
+}
+.birthday-bunting i {
+  width: 33px;
+  height: 44px;
+  padding-top: 11px;
+  font:
+    12px Georgia,
+    serif;
+  background: #c58494;
+  color: #fff8e7;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+  transform: translateY(var(--hang)) rotate(calc((var(--i) - 6) * -2deg));
+}
+.birthday-bunting i:nth-child(3n) {
+  background: #be9c70;
+}
+.birthday-bunting i:nth-child(3n + 1) {
+  background: #a2aaa0;
+}
+.birthday-bunting i:nth-child(6) {
+  visibility: hidden;
+  width: 10px;
+}
+.prelude-celebration > h1 {
+  margin: 13px 0 -2px;
+  font:
+    400 clamp(80px, 11vw, 135px)/1 var(--display),
+    Georgia,
+    serif;
+  letter-spacing: -0.055em;
+  color: #94445f;
+  text-shadow: 0 3px #fff3df;
+}
+.prelude-celebration > h1 > span {
+  color: #c89772;
+}
+.prelude-typed {
+  height: 38px;
+  max-width: 440px;
+  margin: 14px auto 0;
+  font:
+    italic 17px/1.5 var(--display),
+    Georgia,
+    serif;
+  color: #a07374;
+}
+.typing-caret {
+  color: #bc8c8c;
+  animation: wish-sparkle 0.65s infinite alternate;
+}
+.prelude-cake-stage {
+  width: min(440px, 90%);
+  margin: 0 auto -5px;
+  filter: drop-shadow(0 20px 22px #b87e7a1a);
+}
+.wish-cake {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+.wish-flame {
+  transform-origin: 0 0;
+  animation: wish-flicker 0.8s calc(var(--candle-i) * -0.19s) infinite alternate
+    ease-in-out;
+}
+.is-out .wish-flame {
+  animation: wish-extinguish 0.4s calc(var(--candle-i) * 0.08s) both;
+}
+.wish-smoke {
+  opacity: 0;
+  animation: wish-smoke 2.8s calc(var(--candle-i) * 0.08s) both ease-out;
+}
+.prelude-wish h2 {
+  font:
+    400 clamp(25px, 4vw, 34px)/1.2 var(--display),
+    Georgia,
+    serif;
+  margin: 4px 0 20px;
+  letter-spacing: -0.02em;
+}
+.prelude-wish h2 em {
+  color: #aa697b;
+}
+.candle-blower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.wish-mic-button {
+  color: #fff7e8;
+  background: #804258;
+  border: 1px solid #804258;
+  border-radius: 4px;
+  padding: 13px 20px;
+  min-height: 46px;
+  font-size: 12px !important;
+  line-height: 1.4;
+}
+.wish-mic-button:hover {
+  background: #6f344a;
+}
+.wish-mic-status {
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 0;
+  color: #9c7476;
+  max-width: 310px;
+}
+.wish-tap-button {
+  border: none;
+  background: transparent;
+  color: #8a5668;
+  padding: 7px 10px;
+  min-height: 40px;
+  font-size: 11px !important;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.breath-meter {
+  width: min(240px, 100%);
+  height: 4px;
+  border-radius: 5px;
+  background: #dbc3b6;
+  overflow: hidden;
+}
+.breath-meter span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #a45b76;
+  transform-origin: left;
+  transition: transform 0.08s;
+}
+.wish-success {
+  animation: wish-arrive 0.7s both;
+}
+.wish-success .prelude-eyebrow {
+  color: #a77e75;
+}
+.wish-success h2 {
+  font-size: 42px;
+  margin: 12px 0;
+}
+.wish-success p {
+  font:
+    italic 17px var(--display),
+    Georgia,
+    serif;
+  color: #a17c75;
+}
+.prelude-continue {
+  border: 1px solid #a9787f;
+  padding: 15px 22px;
+  background: #804258;
+  color: #fff4df;
+  border-radius: 4px;
+  margin-top: 12px;
+  min-height: 48px;
+  font-size: 12px !important;
+}
+.prelude-balloons,
+.prelude-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.prelude-balloons i {
+  position: absolute;
+  top: 110%;
+  left: calc(var(--i) * 14% - 3%);
+  width: clamp(55px, 9vw, 110px);
+  aspect-ratio: 0.8;
+  border-radius: 48% 48% 45% 45%;
+  background:
+    radial-gradient(ellipse at 30% 25%, #fff9e5b3, transparent 40%),
+    linear-gradient(120deg, #e7b2bb, #bd708d);
+  box-shadow: inset -8px -10px 20px #9c4e6c22;
+  transform: rotate(calc((var(--i) - 3) * 5deg));
+  animation: wish-balloon-rise 10s calc(var(--i) * 0.22s) both ease-out;
+}
+.prelude-balloons i:nth-child(3n) {
+  background:
+    radial-gradient(ellipse at 30% 25%, #fff9e5b3, transparent 40%),
+    linear-gradient(120deg, #f1d49f, #cda56e);
+}
+.prelude-balloons i:nth-child(3n + 1) {
+  background:
+    radial-gradient(ellipse at 30% 25%, #fff9e5b3, transparent 40%),
+    linear-gradient(120deg, #d4cfde, #9b8bab);
+}
+.prelude-balloons i:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 25px;
+  height: 170px;
+  border-left: 1px solid #b28a7c88;
+  border-radius: 50%;
+}
+.prelude-confetti i {
+  position: absolute;
+  top: -20px;
+  width: 5px;
+  height: 10px;
+  background: #c78598;
+  opacity: 0;
+  animation: wish-confetti-fall var(--fall-duration) var(--fall-delay) both
+    ease-out;
+}
+.prelude-confetti i:nth-child(3n) {
+  background: #c6a36d;
+  border-radius: 50%;
+}
+.prelude-confetti i:nth-child(3n + 1) {
+  background: #9faaa0;
+}
+.wish-confetti i {
+  width: 7px;
+  height: 12px;
+}
+.gift-tools .candle-blower {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #d8c2ad;
+  align-items: stretch;
+}
+.gift-tools .wish-mic-status {
+  font-size: 11px;
+}
+.gift-tools .wish-tap-button {
+  align-self: center;
+}
+@keyframes wish-sparkle {
+  from {
+    opacity: 0.15;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+@keyframes wish-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes wish-flicker {
+  from {
+    transform: rotate(-4deg) scale(0.95, 1);
+  }
+  to {
+    transform: rotate(4deg) scale(1.03, 0.94);
+  }
+}
+@keyframes wish-extinguish {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.1, 0.2) rotate(-35deg);
+  }
+}
+@keyframes wish-smoke {
+  15% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0;
+    transform: translate(8px, -30px);
+  }
+}
+@keyframes wish-balloon-rise {
+  from {
+    top: 110%;
+  }
+  to {
+    top: -60%;
+  }
+}
+@keyframes wish-confetti-fall {
+  10% {
+    opacity: 0.75;
+  }
+  to {
+    opacity: 0;
+    transform: translate(40px, 105svh) rotate(640deg);
+  }
+}
+@media (max-width: 650px) {
+  .prelude-header {
+    padding: 18px 23px;
+  }
+  .prelude-header > span {
+    font-size: 15px;
+  }
+  .prelude-header button {
+    font-size: 10px;
+    padding: 7px 12px;
+  }
+  .prelude-invitation {
+    padding-bottom: 20vh;
+  }
+  .prelude-invitation h1 {
+    font-size: 65px;
+  }
+  .prelude-invitation p {
+    font-size: 12px;
+  }
+  .prelude-invitation .prelude-eyebrow {
+    font-size: 7px;
+  }
+  .invitation-footnote {
+    max-width: 240px;
+    font-size: 14px;
+  }
+  .prelude-celebration {
+    padding: 8px 20px 25px;
+  }
+  .birthday-bunting {
+    padding-bottom: 8px;
+  }
+  .birthday-bunting i {
+    width: 21px;
+    height: 35px;
+    padding-top: 9px;
+    font-size: 10px;
+  }
+  .birthday-bunting > span {
+    gap: 3px;
+  }
+  .prelude-celebration > h1 {
+    font-size: 86px;
+    margin-top: 15px;
+  }
+  .prelude-typed {
+    max-width: 270px;
+    font-size: 15px;
+    height: 44px;
+    margin-top: 10px;
+  }
+  .prelude-cake-stage {
+    width: min(350px, 100%);
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .prelude-wish h2 {
+    font-size: 25px;
+    margin-bottom: 16px;
+  }
+  .wish-success h2 {
+    font-size: 35px;
+  }
+  .prelude-wish .prelude-eyebrow {
+    font-size: 7px;
+  }
+  .candle-blower {
+    gap: 7px;
+  }
+}
+@media (max-height: 760px) and (min-width: 651px) {
+  .prelude-header {
+    padding-top: 16px;
+    padding-bottom: 12px;
+  }
+  .prelude-celebration > h1 {
+    font-size: 86px;
+  }
+  .prelude-cake-stage {
+    width: 320px;
+  }
+}
+.birthday-prelude[data-reduced="true"] *,
+.birthday-prelude[data-reduced="true"] *:before,
+.birthday-prelude[data-reduced="true"] *:after {
+  animation: none !important;
+  transition: none !important;
+}
+.birthday-prelude[data-reduced="true"] .is-out .wish-flame {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .birthday-prelude *,
+  .birthday-prelude *:before,
+  .birthday-prelude *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .birthday-prelude .is-out .wish-flame {
+    opacity: 0;
+  }
+}

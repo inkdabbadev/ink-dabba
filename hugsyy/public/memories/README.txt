@@ -1,0 +1,1 @@
+﻿Place your own authorized memory photos or audio in this directory, then set photo/audio paths and sample:false in src/content/birthday.ts. Example paths: /memories/school.jpg and /memories/message.mp3. No personal photos or recordings have been supplied with this project.
